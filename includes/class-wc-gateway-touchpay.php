@@ -116,8 +116,8 @@ class WC_Gateway_TouchPay extends WC_Payment_Gateway {
         // Affichage HTML minimal
         echo '<!DOCTYPE html><html><head><meta charset="utf-8"><title>TouchPay</title></head><body>';
         echo '<p>' . __('Redirection vers TouchPay en cours...', 'wc-touchpay') . '</p>';
-        echo '<script src="' . esc_url($script_url) . '" id="touchpay-script"></script>';
-        echo '<script>';
+        echo '<script src="' . esc_url($script_url) . '" id="touchpay-script" type="text/javascript"></script>';
+        echo '<script type="text/javascript">';
         echo 'function sendPaymentInfosWhenReady() {';
         echo '  if (typeof SendPaymentInfos === "function") {';
         echo '    SendPaymentInfos(';
@@ -140,7 +140,6 @@ class WC_Gateway_TouchPay extends WC_Payment_Gateway {
         echo '}';
         echo 'window.onload = sendPaymentInfosWhenReady;';
         echo '</script>';
-        echo '<input type="button" onclick="sendPaymentInfosWhenReady()" value="Continuer" style="background-color: rgb(42, 83, 139);color : white ; border-radius: 8px;height: 30px; margin-top:20px;" />';
         echo '</body></html>';
         exit;
     }
