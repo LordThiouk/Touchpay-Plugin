@@ -102,7 +102,7 @@ class WC_Gateway_TouchPay extends WC_Payment_Gateway {
         $agency_code = esc_js($gateway->get_option('agency_code'));
         $secure_code = esc_js($gateway->get_option('secure_code'));
         $mode = esc_js($gateway->get_option('mode'));
-        $domain_name = esc_js(get_site_url());
+        $domain_name = esc_js(parse_url(get_site_url(), PHP_URL_HOST));
         $amount = esc_js($order->get_total());
         $city = esc_js($order->get_billing_city());
         $email = esc_js($order->get_billing_email());
@@ -140,6 +140,7 @@ class WC_Gateway_TouchPay extends WC_Payment_Gateway {
         echo '}';
         echo 'window.onload = sendPaymentInfosWhenReady;';
         echo '</script>';
+        echo '<input type="button" onclick="sendPaymentInfosWhenReady()" value="Continuer" style="background-color: rgb(42, 83, 139);color : white ; border-radius: 8px;height: 30px; margin-top:20px;" />';
         echo '</body></html>';
         exit;
     }
