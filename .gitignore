@@ -1,0 +1,26 @@
+# WordPress
+wp-content/uploads/
+wp-content/cache/
+wp-content/backups/
+wp-content/upgrade/
+
+# Système
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Dossiers d'historique ou de sauvegarde
+.history/
+
+# Fichiers de configuration locaux
+.env
+.env.*
+
+# Node/npm (si jamais utilisé)
+node_modules/
+.history/
+# Autres
+*.zip
+*.tar.gz 

@@ -110,8 +110,8 @@ class WC_Gateway_TouchPay extends WC_Payment_Gateway {
         $last_name = esc_js($order->get_billing_last_name());
         $phone = esc_js($order->get_billing_phone());
         $order_number = esc_js($order->get_id());
-        $url_success = esc_js($order->get_checkout_order_received_url());
-        $url_failed = esc_js(wc_get_checkout_url());
+        $url_success = esc_js(add_query_arg('touchpay_status', 'success', $order->get_checkout_order_received_url()));
+        $url_failed = esc_js(add_query_arg('touchpay_status', 'failed', $order->get_checkout_order_received_url()));
         $script_url = 'https://touchpay.gutouch.net/touchpayv2/script/touchpaynr/prod_touchpay-0.0.1.js';
         // Affichage HTML minimal
         echo '<!DOCTYPE html><html><head><meta charset="utf-8"><title>TouchPay</title></head><body>';
